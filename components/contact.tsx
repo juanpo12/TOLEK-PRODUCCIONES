@@ -61,7 +61,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-muted/30">
+    <section id="contact" className="py-20 px-4 bg-muted/30 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Trabajemos juntos</h2>
@@ -70,7 +70,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <Card className="shadow-lg">
             <CardHeader>
@@ -86,7 +86,7 @@ export function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                         Nombre completo
@@ -99,6 +99,7 @@ export function Contact() {
                         required
                         placeholder="Tu nombre"
                         disabled={isSubmitting}
+                        className="w-full"
                       />
                     </div>
                     <div>
@@ -114,11 +115,12 @@ export function Contact() {
                         required
                         placeholder="tu@email.com"
                         disabled={isSubmitting}
+                        className="w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                         Teléfono
@@ -130,6 +132,7 @@ export function Contact() {
                         onChange={handleChange}
                         placeholder="+34 600 000 000"
                         disabled={isSubmitting}
+                        className="w-full"
                       />
                     </div>
                     <div>
@@ -143,6 +146,7 @@ export function Contact() {
                         onChange={handleChange}
                         placeholder="Fitness, Retrato, Boda..."
                         disabled={isSubmitting}
+                        className="w-full"
                       />
                     </div>
                   </div>
@@ -160,6 +164,7 @@ export function Contact() {
                       rows={5}
                       placeholder="Cuéntame sobre tu proyecto..."
                       disabled={isSubmitting}
+                      className="w-full resize-none"
                     />
                   </div>
 
@@ -179,86 +184,86 @@ export function Contact() {
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-8">
-            <Card className="shadow-lg">
+          <div className="space-y-8 w-full">
+            <Card className="shadow-lg w-full">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-6">Información de contacto</h3>
                 <div className="space-y-4">
                   <button
-                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors"
+                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors min-w-0"
                     onClick={() => window.open("mailto:hola@photostudio.com")}
                   >
-                    <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">hola@photostudio.com</span>
+                    <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-muted-foreground truncate">hola@photostudio.com</span>
                   </button>
                   <button
-                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors"
+                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors min-w-0"
                     onClick={() => window.open("tel:+34600123456")}
                   >
-                    <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">+34 600 123 456</span>
+                    <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-muted-foreground truncate">+34 600 123 456</span>
                   </button>
                   <button
-                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors"
+                    className="flex items-center space-x-3 w-full text-left hover:text-primary transition-colors min-w-0"
                     onClick={() => window.open("https://maps.google.com/?q=Madrid,España", "_blank")}
                   >
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">Madrid, España</span>
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-muted-foreground truncate">Madrid, España</span>
                   </button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg">
+            <Card className="shadow-lg w-full">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-6">Sígueme en redes</h3>
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-2 sm:gap-4">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex items-center space-x-2 bg-transparent"
+                    className="flex items-center space-x-2 bg-transparent flex-1 min-w-0 sm:flex-none"
                     onClick={() => openSocialMedia("instagram")}
                   >
-                    <Instagram className="h-4 w-4" />
-                    <span>Instagram</span>
+                    <Instagram className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">Instagram</span>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex items-center space-x-2 bg-transparent"
+                    className="flex items-center space-x-2 bg-transparent flex-1 min-w-0 sm:flex-none"
                     onClick={() => openSocialMedia("facebook")}
                   >
-                    <Facebook className="h-4 w-4" />
-                    <span>Facebook</span>
+                    <Facebook className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">Facebook</span>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex items-center space-x-2 bg-transparent"
+                    className="flex items-center space-x-2 bg-transparent flex-1 min-w-0 sm:flex-none"
                     onClick={() => openSocialMedia("twitter")}
                   >
-                    <Twitter className="h-4 w-4" />
-                    <span>Twitter</span>
+                    <Twitter className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">Twitter</span>
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg">
+            <Card className="shadow-lg w-full">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-4">Horarios de atención</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Lunes - Viernes</span>
-                    <span>9:00 - 18:00</span>
+                  <div className="flex justify-between items-center min-w-0">
+                    <span className="truncate">Lunes - Viernes</span>
+                    <span className="flex-shrink-0 ml-2">9:00 - 18:00</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Sábados</span>
-                    <span>10:00 - 16:00</span>
+                  <div className="flex justify-between items-center min-w-0">
+                    <span className="truncate">Sábados</span>
+                    <span className="flex-shrink-0 ml-2">10:00 - 16:00</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Domingos</span>
-                    <span>Solo citas</span>
+                  <div className="flex justify-between items-center min-w-0">
+                    <span className="truncate">Domingos</span>
+                    <span className="flex-shrink-0 ml-2">Solo citas</span>
                   </div>
                 </div>
               </CardContent>
